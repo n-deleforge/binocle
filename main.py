@@ -17,13 +17,14 @@ if len(sys.argv) == 1:
 NAME = "Binocle"
 VERSION = "0.2"
 ALL_ENGINES = numpy.array([
-    ["b", "Bing", "https://www.bing.com/search?q"],
+    ["b", "Bing", "https://www.bing.com/search?q="],
     ["c", "Chocolatey", "https://community.chocolatey.org/packages?q="],
     ["d", "Duckduckgo", "https://duckduckgo.com/?q="],
     ["e", "Ecosia", "https://www.ecosia.org/search?method=index&q="],
-    ["g", "Google", "https://www.google.fr/search?q"],
-    ["q", "Qwant", "https://www.qwant.com/?q"],
-    ["s", "Startpage", "https://www.startpage.com/do/search?query"],
+    ["g", "Google", "https://www.google.fr/search?q="],
+    ["gi", "Github", "https://github.com/search?q="],
+    ["q", "Qwant", "https://www.qwant.com/?q="],
+    ["s", "Startpage", "https://www.startpage.com/do/search?query="],
     ["y", "Youtube", "https://www.youtube.com/results?search_query="]])
 errorLoop = 0
 NB_ENGINES = int(ALL_ENGINES.size / 3)
