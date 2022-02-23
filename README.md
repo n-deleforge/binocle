@@ -42,18 +42,18 @@ If your query is only one word, you do not need to add quote marks as you can no
 - Then you can type : `binocle` in your terminal
 
 ## Engines availables
-### Search engines
-- Bing
-- Duckduckgo
-- Ecosia
-- Google
-- Qwant
-- Startpage
 
-### Websites
-- Chocolatey
-- Youtube
-
-# Changelog
+| Keyword | Search engine 
+| :----------: | -----------
+| b             | Bing
+| c             | Chocolatey
+| d             | Duckduckgo
+| e             | Ecosia
+| g             | Google
+| gi            | Github
+| q             | Qwant
+| s             | Startpage
+| t             | Twitch
+| y             | Youtube
 
 - 0.2 : Initial release
