@@ -56,4 +56,6 @@ If your query is only one word, you do not need to add quote marks as you can no
 | t             | Twitch
 | y             | Youtube
 
+# Changelog
+
 - 0.2 : Initial release
