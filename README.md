@@ -11,22 +11,21 @@
 </div>
 
 # Quick start
-## Requirements
-
-Python must be installed on your device.
-
 ## Installation and usage
+
+`Python3` and `pip` must be installed.
 
 ```
 git clone https://github.com/n-deleforge/binocle.git
 cd binocle
-python main.py [engine] [query]
+pip install r -requirements.txt
+binocle [keyword] [query]
 ```
 
 ### Usage
 
 Binocle *always* need two arguments to work.
-- **engine** : it is the first letter of the search engine (the available list is below)
+- **keyword** : it is the first letter of the search engine (the available list is below)
 - **query** : it is the query sent to the search engine
 
 ### Examples
@@ -36,25 +35,28 @@ Binocle *always* need two arguments to work.
 
 If your query is only one word, you do not need to add quote marks as you can notice with the second example.
 
-### Launch from terminal (Windows only)
+### Launch from terminal
 
 - Edit the PATH global variable and add the directory of binocle
-- Then you can type : `binocle` in your terminal
+- Then you can type : `binocle [keyword] [query]` in your terminal
 
 ## Engines availables
 
-| Keyword | Search engine 
-| :----------: | -----------
-| b             | Bing
-| c             | Chocolatey
-| d             | Duckduckgo
-| e             | Ecosia
-| g             | Google
-| gi            | Github
-| q             | Qwant
-| s             | Startpage
-| t             | Twitch
-| y             | Youtube
+| Keyword       | Search engine 
+| :-----------: | -----------
+| a             | [Alternative To](https://alternativeto.net)
+| b             | [Bing](https://www.bing.com)
+| c             | [Chocolatey](https://chocolatey.org)
+| d             | [Duckduckgo](https://duckduckgo.com)
+| e             | [Ecosia](https://www.ecosia.org)
+| g             | [Google](https://google.com)
+| gi            | [Github](https://github.com)
+| q             | [Qwant](https://qwant.com)
+| r             | [Reddit](https://www.reddit.com)
+| s             | [Startpage](https://startpage.com)
+| t             | [Twitch](https://twitch.com)
+| y             | [Youtube](https://youtube.com)
+| w             | [Wikipedia](https://wikipedia.org/wiki/)
 
 # Changelog
 
