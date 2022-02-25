@@ -40,7 +40,7 @@ If your query is only one word, you do not need to add quote marks as you can no
 - Edit the PATH global variable and add the directory of binocle
 - Then you can type : `binocle [keyword] [query]` in your terminal
 
-## Engines availables
+# Engines availables
 
 | Keyword       | Search engine 
 | :-----------: | -----------
