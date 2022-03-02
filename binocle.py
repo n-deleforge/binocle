@@ -5,21 +5,39 @@ import webbrowser
 
 # Constants
 NAME = "Binocle"
-VERSION = "0.2"
+VERSION = "0.3"
 ALL_ENGINES = numpy.array([
-    ["a", "AlternativeTo", "https://alternativeto.net/browse/search/?q="],
+    # Search engines
     ["b", "Bing", "https://www.bing.com/search?q="],
-    ["c", "Chocolatey", "https://community.chocolatey.org/packages?q="],
     ["d", "Duckduckgo", "https://duckduckgo.com/?q="],
     ["e", "Ecosia", "https://www.ecosia.org/search?method=index&q="],
     ["g", "Google", "https://www.google.fr/search?q="],
-    ["gi", "Github", "https://github.com/search?q="],
     ["q", "Qwant", "https://www.qwant.com/?q="],
-    ["r", "Reddit", "https://www.reddit.com/search/?q="],
     ["s", "Startpage", "https://www.startpage.com/do/search?query="],
-    ["t", "Twitch", "https://www.twitch.tv/search?term="],
-    ["y", "Youtube", "https://www.youtube.com/results?search_query="],
-    ["w", "Wikipedia", "https://wikipedia.org/wiki/"]
+
+    # Shopping
+    ["am", "Amazon", "https://www.amazon.com/s?k="],
+    ["am-fr", "Amazon.fr", "https://www.amazon.fr/s?k="],
+    ["am-de", "Amazon.de", "https://www.amazon.de/s?k="],
+    ["am-es", "Amazon.es", "https://www.amazon.es/s?k="],
+    ["am-it", "Amazon.it", "https://www.amazon.it/s?k="],
+
+    # Utility
+    ["alt", "AlternativeTo", "https://alternativeto.net/browse/search/?q="],
+    ["wi", "Wikipedia", "https://wikipedia.org/wiki/"],
+
+    # Entertainment
+    ["tw", "Twitch", "https://www.twitch.tv/search?term="],
+    ["yt", "Youtube", "https://www.youtube.com/results?search_query="],
+
+    # Programming
+    ["ch", "Chocolatey", "https://community.chocolatey.org/packages?q="],
+    ["gi", "Github", "https://github.com/search?q="],
+    ["so", "StackOverflow", "https://stackoverflow.com/search?q="],
+
+    # Social
+    ["li", "LinkedIn", "https://www.linkedin.com/search/results/all/?keywords="],
+    ["re", "Reddit", "https://www.reddit.com/search/?q="],
 ])
 
 # Define program and arguments
@@ -51,12 +69,10 @@ query = args.query.replace(' ', '%20')
 # MAIN : Looking for one keyword
 for engine in ALL_ENGINES:
     if engine[0] == keyword:
-        print(NAME + " " + VERSION + "\nEngine : " +
-              engine[1] + "\nQuery : " + engine[2] + query)
+        print(NAME + " " + VERSION + "\nEngine : " + engine[1] + "\nQuery : " + engine[2] + query)
         webbrowser.open(engine[2] + query, new=2)
 
     else:
         errorLoop = errorLoop + 1
         if errorLoop == nbEngines:
-            print(NAME + " " + VERSION + "\nAn error occured : " +
-                  keyword + " is not a correct keyword.")
+            print(NAME + " " + VERSION + "\nAn error occured : " + keyword + " is not a correct keyword.")

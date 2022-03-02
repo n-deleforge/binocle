@@ -31,33 +31,66 @@ Binocle *always* need two arguments to work.
 ### Examples
 
 - Search "My Super Research" on Duckduckgo : `binocle d "My Super Research"`
-- Search "Github" on Youtube : `binocle y Github` 
+- Search "Github" on Youtube : `binocle yt Github` 
 
 If your query is only one word, you do not need to add quote marks as you can notice with the second example.
 
-### Launch from terminal
+## Launch from terminal
 
 - Edit the PATH global variable and add the directory of binocle
 - Then you can type : `binocle [keyword] [query]` in your terminal
 
-# Engines availables
+# All search engines
+## Search engines
 
-| Keyword       | Search engine 
-| :-----------: | -----------
-| a             | [Alternative To](https://alternativeto.net)
+| Keyword | Search on
+| :----------: | -------------------
 | b             | [Bing](https://www.bing.com)
-| c             | [Chocolatey](https://chocolatey.org)
 | d             | [Duckduckgo](https://duckduckgo.com)
 | e             | [Ecosia](https://www.ecosia.org)
 | g             | [Google](https://google.com)
-| gi            | [Github](https://github.com)
 | q             | [Qwant](https://qwant.com)
-| r             | [Reddit](https://www.reddit.com)
 | s             | [Startpage](https://startpage.com)
-| t             | [Twitch](https://twitch.com)
-| y             | [Youtube](https://youtube.com)
-| w             | [Wikipedia](https://wikipedia.org/wiki/)
+
+## Shopping
+
+| Keyword | Search on
+| :----------: | -------------------
+| am          | [Amazon](https://www.amazon.com)
+| am-fr       | [Amazon.fr](https://www.amazon.fr)
+| am-de     | [Amazon.de](https://www.amazon.de)
+| am-es     | [Amazon.es](https://www.amazon.es)
+| am-it       | [Amazon.it](https://www.amazon.it)
+
+## Utily
+
+| Keyword | Search on
+| :----------: | -------------------
+| alt           | [Alternative To](https://alternativeto.net)
+| wi           | [Wikipedia](https://wikipedia.org/wiki/)
+
+## Entertainment
+
+| Keyword | Search on
+| :----------: | -------------------
+| tw           | [Twitch](https://twitch.com)
+| yt            | [Youtube](https://youtube.com)
+
+## Programming
+
+| Keyword | Search on
+| :----------: | -------------------
+| ch           | [Chocolatey](https://chocolatey.org)
+| gi            | [Github](https://github.com)
+| so           | [StackOverflow](https://stackoverflow.com) 
+
+## Social
+
+| Keyword | Search on
+| :----------: | -------------------
+| re            | [Reddit](https://www.reddit.com)
 
 # Changelog
 
+- 0.3 : multiple new search engines
 - 0.2 : Initial release
