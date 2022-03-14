@@ -43,8 +43,15 @@ ALL_ENGINES = numpy.array([
 # Define program and arguments
 parser = argparse.ArgumentParser(
     prog=NAME,
-    description="Look for everything, everywhere.",
-    usage=NAME + " " + VERSION + " [keyword] [query]")
+    description="Look for everything, everywhere.")
+parser.add_argument(
+    "-v", "--version", 
+    action="version", 
+    version=NAME + " " + VERSION)
+# parser.add_argument(
+#     "-l", "--list",
+#     action='store_true',
+#     help="show all search engines availables and exit")
 parser.add_argument(
     "keyword",
     type=str,
@@ -54,7 +61,7 @@ parser.add_argument(
     type=str,
     help="search query (ex : \"my super research\")")
 
-# Prevent to display Python error
+# Exit on error
 if len(sys.argv) == 1:
     parser.print_help(sys.stderr)
     sys.exit(1)
@@ -62,9 +69,9 @@ if len(sys.argv) == 1:
 # Variables
 errorLoop = 0
 nbEngines = int(ALL_ENGINES.size / 3)
-args = parser.parse_args()
-keyword = args.keyword
-query = args.query.replace(' ', '%20')
+results = parser.parse_args()
+keyword = results.keyword
+query = results.query.replace(' ', '%20')
 
 # MAIN : Looking for one keyword
 for engine in ALL_ENGINES:
