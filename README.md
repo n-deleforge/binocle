@@ -25,20 +25,20 @@ binocle [keyword] [query]
 ### Usage
 
 Binocle *always* need two arguments to work.
-- **keyword** : it is the first letter of the search engine (the available list is below)
-- **query** : it is the query sent to the search engine
+- **keyword** : it is the first letter of the search engine (the available list is below).
+- **query** : it is the query sent to the search engine.
 
 ### Examples
 
-- Search "My Super Research" on Duckduckgo : `binocle d "My Super Research"`
-- Search "Github" on Youtube : `binocle yt Github` 
+- Search "My Super Research" on Duckduckgo : `binocle d "My Super Research"`.
+- Search "Github" on Youtube : `binocle yt Github`.
 
 If your query is only one word, you do not need to add quote marks as you can notice with the second example.
 
 ## Launch from terminal
 
-- Edit the PATH global variable and add the directory of binocle
-- Then you can type : `binocle [keyword] [query]` in your terminal
+- Edit the PATH global variable and add the directory of binocle.
+- Then you can type : `binocle [keyword] [query]` in your terminal.
 
 # All search engines
 ## Search engines
