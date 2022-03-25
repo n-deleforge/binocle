@@ -92,5 +92,5 @@ If your query is only one word, you do not need to add quote marks as you can no
 
 # Changelog
 
-- 0.3 : multiple new search engines
+- 0.3 : Multiple new search engines
 - 0.2 : Initial release
