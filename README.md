@@ -25,8 +25,8 @@ binocle [keyword] [query]
 ### Usage
 
 Binocle *always* need two arguments to work.
-- **keyword** : it is the first letter of the search engine (the available list is below).
-- **query** : it is the query sent to the search engine.
+- **keyword** : it's the keyword of the search engine used - the list is available below.
+- **query** : it's the query sent to the search engine.
 
 ### Examples
 
