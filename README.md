@@ -13,7 +13,7 @@
 # Quick start
 ## Installation and usage
 
-`python3` and `pip` must be installed.
+`python` and `pip` must be installed.
 
 ```
 git clone https://github.com/n-deleforge/binocle.git
