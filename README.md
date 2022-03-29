@@ -73,6 +73,7 @@ If your query is only one word, you do not need to add quote marks as you can no
 
 | Keyword | Search on
 | :----------: | -------------------
+| mal         | [MyAnimeList](https://myanimelist.net)
 | tw           | [Twitch](https://twitch.com)
 | yt            | [Youtube](https://youtube.com)
 

@@ -27,6 +27,7 @@ ALL_ENGINES = numpy.array([
     ["wi", "Wikipedia", "https://wikipedia.org/wiki/"],
 
     # Entertainment
+    ["mal", "MyAnimeList", "https://myanimelist.net/search/all?q="],
     ["tw", "Twitch", "https://www.twitch.tv/search?term="],
     ["yt", "Youtube", "https://www.youtube.com/results?search_query="],
 
