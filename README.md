@@ -18,7 +18,7 @@
 ```
 git clone https://github.com/n-deleforge/binocle.git
 cd binocle
-pip install r -requirements.txt
+python -m pip install -r requirements.txt
 binocle [keyword] [query]
 ```
 
