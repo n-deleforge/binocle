@@ -49,10 +49,6 @@ parser.add_argument(
     "-v", "--version", 
     action="version", 
     version=NAME + " " + VERSION)
-# parser.add_argument(
-#     "-l", "--list",
-#     action='store_true',
-#     help="show all search engines availables and exit")
 parser.add_argument(
     "keyword",
     type=str,
