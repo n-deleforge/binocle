@@ -68,16 +68,17 @@ If your query is only one word, you do not need to add quote marks as you can no
 | :----------: | -------------------
 | alt           | [Alternative To](https://alternativeto.net)
 | wi           | [Wikipedia](https://wikipedia.org/wiki/)
+| mal         | [MyAnimeList](https://myanimelist.net)
+| hltb         | [How Long To Beat](https://howlongtobeat.com/)
 
 ## Entertainment
 
 | Keyword | Search on
 | :----------: | -------------------
-| mal         | [MyAnimeList](https://myanimelist.net)
 | tw           | [Twitch](https://twitch.com)
 | yt            | [Youtube](https://youtube.com)
 
-## Programming
+## Development
 
 | Keyword | Search on
 | :----------: | -------------------

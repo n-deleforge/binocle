@@ -25,13 +25,14 @@ ALL_ENGINES = numpy.array([
     # Utility
     ["alt", "AlternativeTo", "https://alternativeto.net/browse/search/?q="],
     ["wi", "Wikipedia", "https://wikipedia.org/wiki/"],
+    ["mal", "MyAnimeList", "https://myanimelist.net/search/all?q="],
+    ["hltb", "How Long To Beat", "https://howlongtobeat.com/?q="],
 
     # Entertainment
-    ["mal", "MyAnimeList", "https://myanimelist.net/search/all?q="],
     ["tw", "Twitch", "https://www.twitch.tv/search?term="],
     ["yt", "Youtube", "https://www.youtube.com/results?search_query="],
 
-    # Programming
+    # Development
     ["ch", "Chocolatey", "https://community.chocolatey.org/packages?q="],
     ["gi", "Github", "https://github.com/search?q="],
     ["so", "StackOverflow", "https://stackoverflow.com/search?q="],
@@ -44,7 +45,8 @@ ALL_ENGINES = numpy.array([
 # Define program and arguments
 parser = argparse.ArgumentParser(
     prog=NAME,
-    description="Look for everything, everywhere.")
+    description="Look for everything, everywhere.",
+    epilog="https://github.com/n-deleforge/binocle for more details")
 parser.add_argument(
     "-v", "--version", 
     action="version", 
