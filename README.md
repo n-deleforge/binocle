@@ -29,14 +29,15 @@ Binocle *always* need two arguments to work.
 - **query** : it's the query sent to the search engine.
 
 There are also some optionnals arguments :
-- `-v` / `--version : show Binocle version
-- `-h` / `--help : show Binocle help
-- `-l` / `--list : show every search engines available
+- `-v` / `--version` : show Binocle version
+- `-h` / `--help` : show Binocle help
+- `-l` / `--list` : show every search engines available
 
 ### Examples
 
 - Search "My Super Research" on Duckduckgo : `binocle d "My Super Research"`.
-- Search "Github" on Youtube : `binocle yt Github`.
+- Search "Youtube" on Github : `binocle gi youtube`.
+- Only show search engines available : `binocle -l`.
 
 If your query is only one word, you do not need to add quote marks as you can notice with the second example.
 
