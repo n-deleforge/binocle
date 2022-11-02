@@ -28,6 +28,11 @@ Binocle *always* need two arguments to work.
 - **keyword** : it's the keyword of the search engine used - the list is available below.
 - **query** : it's the query sent to the search engine.
 
+There are also some optionnals arguments :
+- `-v` / `--version : show Binocle version
+- `-h` / `--help : show Binocle help
+- `-l` / `--list : show every search engines available
+
 ### Examples
 
 - Search "My Super Research" on Duckduckgo : `binocle d "My Super Research"`.
@@ -94,5 +99,6 @@ If your query is only one word, you do not need to add quote marks as you can no
 
 # Changelog
 
+- 0.4 : List function added (show every search engines) + HowLongToBeat added
 - 0.3 : Multiple new search engines
 - 0.2 : Initial release

@@ -26,7 +26,7 @@ ALL_ENGINES = numpy.array([
     ["alt", "AlternativeTo", "https://alternativeto.net/browse/search/?q="],
     ["wi", "Wikipedia", "https://wikipedia.org/wiki/"],
     ["mal", "MyAnimeList", "https://myanimelist.net/search/all?q="],
-    ["hltb", "How Long To Beat", "https://howlongtobeat.com/?q="],
+    ["hltb", "HowLongToBeat", "https://howlongtobeat.com/?q="],
 
     # Entertainment
     ["tw", "Twitch", "https://www.twitch.tv/search?term="],
@@ -46,11 +46,15 @@ ALL_ENGINES = numpy.array([
 parser = argparse.ArgumentParser(
     prog=NAME,
     description="Look for everything, everywhere.",
-    epilog="https://github.com/n-deleforge/binocle for more details")
+    epilog="more details on https://github.com/n-deleforge/binocle")
 parser.add_argument(
-    "-v", "--version", 
+    "-v", "--version",
     action="version", 
     version=NAME + " " + VERSION)
+parser.add_argument(
+    "-l", "--list",
+    action="version", 
+    help="show search engines list and exit")
 parser.add_argument(
     "keyword",
     type=str,
@@ -60,25 +64,45 @@ parser.add_argument(
     type=str,
     help="search query (ex : \"my super research\")")
 
-# Exit on error
-if len(sys.argv) == 1:
+# Binocle function
+def startBinocle():
+    # Variables
+    errorLoop = 0
+    nbEngines = int(ALL_ENGINES.size / 3)
+    results = parser.parse_args()
+    keyword = results.keyword
+    query = results.query
+    queryFormatted = results.query.replace(' ', '%20')
+
+    # Looking for one keyword
+    for engine in ALL_ENGINES:
+        if engine[0] == keyword:
+            print(f"{NAME} {VERSION} \nEngine : {engine[1]} \nSearch : {query} \nQuery : {engine[2]}{queryFormatted}")
+            webbrowser.open(engine[2] + queryFormatted, new=2)
+
+        else:
+            errorLoop = errorLoop + 1
+            if errorLoop == nbEngines:
+                print(f"{NAME} {VERSION} \nError :  '{keyword}' is not a correct keyword.")
+
+# Display every engines
+def displayEngines():
+    print(f"{NAME} {VERSION} \n\nSearch engine - Keyword\n=======================")
+    sortedEngines = numpy.sort(ALL_ENGINES, axis = 0)
+    for engine in sortedEngines:
+        print(f"{engine[1]} - {engine[0]}")
+
+# Workflow of Binocle
+# 1st case : display search engines
+if len(sys.argv) == 2 and (sys.argv[1] == "-l" or sys.argv[1] == "--list"):
+    displayEngines()
+    sys.exit(1)
+
+# 2nd case : display help
+elif len(sys.argv) == 1:
     parser.print_help(sys.stderr)
     sys.exit(1)
 
-# Variables
-errorLoop = 0
-nbEngines = int(ALL_ENGINES.size / 3)
-results = parser.parse_args()
-keyword = results.keyword
-query = results.query.replace(' ', '%20')
-
-# MAIN : Looking for one keyword
-for engine in ALL_ENGINES:
-    if engine[0] == keyword:
-        print(NAME + " " + VERSION + "\nEngine : " + engine[1] + "\nQuery : " + engine[2] + query)
-        webbrowser.open(engine[2] + query, new=2)
-
-    else:
-        errorLoop = errorLoop + 1
-        if errorLoop == nbEngines:
-            print(NAME + " " + VERSION + "\nAn error occured : " + keyword + " is not a correct keyword.")
+# 3rd case : call Binocle
+else:
+    startBinocle()
