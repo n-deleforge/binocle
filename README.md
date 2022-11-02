@@ -73,9 +73,9 @@ If your query is only one word, you do not need to add quote marks as you can no
 | Keyword | Search on
 | :----------: | -------------------
 | alt           | [Alternative To](https://alternativeto.net)
-| wi           | [Wikipedia](https://wikipedia.org/wiki/)
-| mal         | [MyAnimeList](https://myanimelist.net)
 | hltb         | [How Long To Beat](https://howlongtobeat.com/)
+| mal         | [MyAnimeList](https://myanimelist.net)
+| wi           | [Wikipedia](https://wikipedia.org/wiki/)
 
 ## Entertainment
 
@@ -96,10 +96,12 @@ If your query is only one word, you do not need to add quote marks as you can no
 
 | Keyword | Search on
 | :----------: | -------------------
+| li            | [LinkedIn](https://www.linkedin.com)
 | re            | [Reddit](https://www.reddit.com)
 
 # Changelog
 
+- 0.5 : Engines are now categorized in the list function
 - 0.4 : List function added (show every search engines) + HowLongToBeat added
 - 0.3 : Multiple new search engines
 - 0.2 : Initial release

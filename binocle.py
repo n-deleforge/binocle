@@ -5,41 +5,46 @@ import webbrowser
 
 # Constants
 NAME = "Binocle"
-VERSION = "0.3"
-ALL_ENGINES = numpy.array([
+VERSION = "0.5"
+CATEGORIES = numpy.array([
+    # ID, Category name
+    [1, "Search engines"],
+    [2, "Shopping"],
+    [3, "Utility"],
+    [4, "Entertainment"],
+    [5, "Development"],
+    [6, "Social"]
+])
+ENGINES = numpy.array([
+    # Keyword, Engine name, URL engine, Category ID
     # Search engines
-    ["b", "Bing", "https://www.bing.com/search?q="],
-    ["d", "Duckduckgo", "https://duckduckgo.com/?q="],
-    ["e", "Ecosia", "https://www.ecosia.org/search?method=index&q="],
-    ["g", "Google", "https://www.google.fr/search?q="],
-    ["q", "Qwant", "https://www.qwant.com/?q="],
-    ["s", "Startpage", "https://www.startpage.com/do/search?query="],
-
+    ["b", "Bing", "https://www.bing.com/search?q=", 1],
+    ["d", "Duckduckgo", "https://duckduckgo.com/?q=", 1],
+    ["e", "Ecosia", "https://www.ecosia.org/search?method=index&q=", 1],
+    ["g", "Google", "https://www.google.fr/search?q=", 1],
+    ["q", "Qwant", "https://www.qwant.com/?q=", 1],
+    ["s", "Startpage", "https://www.startpage.com/do/search?query=", 1],
     # Shopping
-    ["am", "Amazon", "https://www.amazon.com/s?k="],
-    ["am-fr", "Amazon.fr", "https://www.amazon.fr/s?k="],
-    ["am-de", "Amazon.de", "https://www.amazon.de/s?k="],
-    ["am-es", "Amazon.es", "https://www.amazon.es/s?k="],
-    ["am-it", "Amazon.it", "https://www.amazon.it/s?k="],
-
+    ["am", "Amazon", "https://www.amazon.com/s?k=", 2],
+    ["am-fr", "Amazon.fr", "https://www.amazon.fr/s?k=", 2],
+    ["am-de", "Amazon.de", "https://www.amazon.de/s?k=", 2],
+    ["am-es", "Amazon.es", "https://www.amazon.es/s?k=", 2],
+    ["am-it", "Amazon.it", "https://www.amazon.it/s?k=", 2],
     # Utility
-    ["alt", "AlternativeTo", "https://alternativeto.net/browse/search/?q="],
-    ["wi", "Wikipedia", "https://wikipedia.org/wiki/"],
-    ["mal", "MyAnimeList", "https://myanimelist.net/search/all?q="],
-    ["hltb", "HowLongToBeat", "https://howlongtobeat.com/?q="],
-
+    ["alt", "AlternativeTo", "https://alternativeto.net/browse/search/?q=", 3],
+    ["hltb", "HowLongToBeat", "https://howlongtobeat.com/?q=", 3],
+    ["mal", "MyAnimeList", "https://myanimelist.net/search/all?q=", 3],
+    ["wi", "Wikipedia", "https://wikipedia.org/wiki/", 3],
     # Entertainment
-    ["tw", "Twitch", "https://www.twitch.tv/search?term="],
-    ["yt", "Youtube", "https://www.youtube.com/results?search_query="],
-
+    ["tw", "Twitch", "https://www.twitch.tv/search?term=", 4],
+    ["yt", "Youtube", "https://www.youtube.com/results?search_query=", 4],
     # Development
-    ["ch", "Chocolatey", "https://community.chocolatey.org/packages?q="],
-    ["gi", "Github", "https://github.com/search?q="],
-    ["so", "StackOverflow", "https://stackoverflow.com/search?q="],
-
+    ["ch", "Chocolatey", "https://community.chocolatey.org/packages?q=", 5],
+    ["gi", "Github", "https://github.com/search?q=", 5],
+    ["so", "StackOverflow", "https://stackoverflow.com/search?q=", 5],
     # Social
-    ["li", "LinkedIn", "https://www.linkedin.com/search/results/all/?keywords="],
-    ["re", "Reddit", "https://www.reddit.com/search/?q="],
+    ["li", "LinkedIn", "https://www.linkedin.com/search/results/all/?keywords=", 6],
+    ["re", "Reddit", "https://www.reddit.com/search/?q=", 6],
 ])
 
 # Define program and arguments
@@ -68,14 +73,14 @@ parser.add_argument(
 def startBinocle():
     # Variables
     errorLoop = 0
-    nbEngines = int(ALL_ENGINES.size / 3)
+    nbEngines = int(ENGINES.size / 3)
     results = parser.parse_args()
     keyword = results.keyword
     query = results.query
     queryFormatted = results.query.replace(' ', '%20')
 
     # Looking for one keyword
-    for engine in ALL_ENGINES:
+    for engine in ENGINES:
         if engine[0] == keyword:
             print(f"{NAME} {VERSION} \nEngine : {engine[1]} \nSearch : {query} \nQuery : {engine[2]}{queryFormatted}")
             webbrowser.open(engine[2] + queryFormatted, new=2)
@@ -87,10 +92,13 @@ def startBinocle():
 
 # Display every engines
 def displayEngines():
-    print(f"{NAME} {VERSION} \n\nSearch engine - Keyword\n=======================")
-    sortedEngines = numpy.sort(ALL_ENGINES, axis = 0)
-    for engine in sortedEngines:
-        print(f"{engine[1]} - {engine[0]}")
+    # List categories
+    for categorie in CATEGORIES:
+        print(f"=== {categorie[1]} ===")
+        # List engines only from the categorie
+        for engine in ENGINES:
+            if (categorie[0] == engine[3]):
+                print(f"- {engine[1]} : {engine[0]}")
 
 # Workflow of Binocle
 # 1st case : display search engines
