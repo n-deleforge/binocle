@@ -5,10 +5,10 @@ import webbrowser
 
 # Constants
 NAME = "Binocle"
-VERSION = "0.5"
+VERSION = "0.5.1"
 CATEGORIES = numpy.array([
     # ID, Category name
-    [1, "Search engines"],
+    [1, "Search"],
     [2, "Shopping"],
     [3, "Utility"],
     [4, "Entertainment"],
@@ -17,7 +17,7 @@ CATEGORIES = numpy.array([
 ])
 ENGINES = numpy.array([
     # Keyword, Engine name, URL engine, Category ID
-    # Search engines
+    # Search
     ["b", "Bing", "https://www.bing.com/search?q=", 1],
     ["d", "Duckduckgo", "https://duckduckgo.com/?q=", 1],
     ["e", "Ecosia", "https://www.ecosia.org/search?method=index&q=", 1],
@@ -72,29 +72,31 @@ parser.add_argument(
 # Binocle function
 def startBinocle():
     # Variables
-    errorLoop = 0
-    nbEngines = int(ENGINES.size / 3)
+    error = 0
+    nbEngines = int(ENGINES.size / 4) # because there are 4 colums in the engine array
     results = parser.parse_args()
     keyword = results.keyword
     query = results.query
     queryFormatted = results.query.replace(' ', '%20')
 
-    # Looking for one keyword
+    # Check every engine
     for engine in ENGINES:
+        # Engine found, opening webbrowser
         if engine[0] == keyword:
-            print(f"{NAME} {VERSION} \nEngine : {engine[1]} \nSearch : {query} \nQuery : {engine[2]}{queryFormatted}")
+            print(f"{NAME} {VERSION} \nEngine : {engine[1]} \nQuery : {query} \nFormatted query : {engine[2]}{queryFormatted}")
             webbrowser.open(engine[2] + queryFormatted, new=2)
 
+        # Enfine not found
         else:
-            errorLoop = errorLoop + 1
-            if errorLoop == nbEngines:
-                print(f"{NAME} {VERSION} \nError :  '{keyword}' is not a correct keyword.")
+            error = error + 1
+            if error == nbEngines:
+                print(f"{NAME} {VERSION} \nError : '{keyword}' is not a correct keyword.")
 
 # Display every engines
 def displayEngines():
     # List categories
     for categorie in CATEGORIES:
-        print(f"=== {categorie[1]} ===")
+        print(f"\n=== {categorie[1]} ===")
         # List engines only from the categorie
         for engine in ENGINES:
             if (categorie[0] == engine[3]):
