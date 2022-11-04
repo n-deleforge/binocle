@@ -25,23 +25,23 @@ binocle [keyword] [query]
 ### Usage
 
 Binocle *always* need two arguments to work.
-- **keyword** : it's the keyword of the search engine used - the list is available below.
-- **query** : it's the query sent to the search engine.
+- `keyword` : keyword of the engine used - the list is available below.
+- `query` : query sent to the engine
 
 There are also some optionnals arguments :
 - `-v` / `--version` : show Binocle version
 - `-h` / `--help` : show Binocle help
-- `-l` / `--list` : show every search engines available
+- `-l` / `--list` : show every engines available
 
 ### Examples
 
-- Search "My Super Research" on Duckduckgo : `binocle d "My Super Research"`.
-- Search "Youtube" on Github : `binocle gi youtube`.
-- Only show search engines available : `binocle -l`.
+- Search *My Super Research* on **Duckduckgo** : `binocle d "My Super Research"`.
+- Search *SomeYoutuber* on **Youtube** : `binocle yt SomeYoutuber"`.
+- Show engines available : `binocle -l`.
 
 If your query is only one word, you do not need to add quote marks as you can notice with the second example.
 
-## Launch from terminal
+## Launch from terminal (for Windows)
 
 - Edit the PATH global variable and add the directory of binocle.
 - Then you can type : `binocle [keyword] [query]` in your terminal.
@@ -62,18 +62,20 @@ If your query is only one word, you do not need to add quote marks as you can no
 
 | Keyword | Search on
 | :----------: | -------------------
-| am          | [Amazon](https://www.amazon.com)
+| am          | [Amazon.com](https://www.amazon.com)
+| am-uk     | [Amazon.uk](https://www.amazon.co.uk)
 | am-fr       | [Amazon.fr](https://www.amazon.fr)
 | am-de     | [Amazon.de](https://www.amazon.de)
 | am-es     | [Amazon.es](https://www.amazon.es)
 | am-it       | [Amazon.it](https://www.amazon.it)
+| am-jp      | [Amazon.jp](https://www.amazon.jp)
 
-## Utily
+## Utility
 
 | Keyword | Search on
 | :----------: | -------------------
 | alt           | [Alternative To](https://alternativeto.net)
-| hltb         | [How Long To Beat](https://howlongtobeat.com/)
+| hltb         | [HowLongTo Beat](https://howlongtobeat.com/)
 | mal         | [MyAnimeList](https://myanimelist.net)
 | wi           | [Wikipedia](https://wikipedia.org/wiki/)
 
@@ -96,11 +98,23 @@ If your query is only one word, you do not need to add quote marks as you can no
 
 | Keyword | Search on
 | :----------: | -------------------
-| li            | [LinkedIn](https://www.linkedin.com)
+| li              | [LinkedIn](https://www.linkedin.com)
 | re            | [Reddit](https://www.reddit.com)
+
+## Translation
+
+| Keyword | Search on
+| :----------: | -------------------
+| dl-en-fr    | [DeepL](https://www.deepl.com) (English > French)
+| dl-fr-en    | [DeepL](https://www.deepl.com) (French > English)
+| dl-en-es  | [DeepL](https://www.deepl.com) (Enligsh > Spanish)
+| dl-es-en  | [DeepL](https://www.deepl.com) (Spanish > English)
+| dl-es-fr    | [DeepL](https://www.deepl.com) (Spanish > French)
+| dl-fr-es    | [DeepL](https://www.deepl.com) (French > Spanish)
 
 # Changelog
 
+- 0.5.2 : DeepL added
 - 0.5 : Engines are now categorized in the list function
 - 0.4 : List function added (show every search engines) + HowLongToBeat added
 - 0.3 : Multiple new search engines

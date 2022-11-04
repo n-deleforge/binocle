@@ -1,21 +1,22 @@
-import argparse
+import argparse as ap
 import sys
-import numpy
-import webbrowser
+import numpy as np
+import webbrowser as wb
 
 # Constants
 NAME = "Binocle"
-VERSION = "0.5.1"
-CATEGORIES = numpy.array([
+VERSION = "0.5.2"
+CATEGORIES = np.array([
     # ID, Category name
     [1, "Search"],
     [2, "Shopping"],
     [3, "Utility"],
     [4, "Entertainment"],
     [5, "Development"],
-    [6, "Social"]
+    [6, "Social"],
+    [7, "Translation"]
 ])
-ENGINES = numpy.array([
+ENGINES = np.array([
     # Keyword, Engine name, URL engine, Category ID
     # Search
     ["b", "Bing", "https://www.bing.com/search?q=", 1],
@@ -25,11 +26,13 @@ ENGINES = numpy.array([
     ["q", "Qwant", "https://www.qwant.com/?q=", 1],
     ["s", "Startpage", "https://www.startpage.com/do/search?query=", 1],
     # Shopping
-    ["am", "Amazon", "https://www.amazon.com/s?k=", 2],
+    ["am", "Amazon.com", "https://www.amazon.com/s?k=", 2],
+    ["am-uk", "Amazon.uk", "https://www.amazon.co.uk/s?k=", 2],
     ["am-fr", "Amazon.fr", "https://www.amazon.fr/s?k=", 2],
     ["am-de", "Amazon.de", "https://www.amazon.de/s?k=", 2],
     ["am-es", "Amazon.es", "https://www.amazon.es/s?k=", 2],
     ["am-it", "Amazon.it", "https://www.amazon.it/s?k=", 2],
+    ["am-jp", "Amazon.jp", "https://www.amazon.jp/s?k=", 2],
     # Utility
     ["alt", "AlternativeTo", "https://alternativeto.net/browse/search/?q=", 3],
     ["hltb", "HowLongToBeat", "https://howlongtobeat.com/?q=", 3],
@@ -45,12 +48,19 @@ ENGINES = numpy.array([
     # Social
     ["li", "LinkedIn", "https://www.linkedin.com/search/results/all/?keywords=", 6],
     ["re", "Reddit", "https://www.reddit.com/search/?q=", 6],
+    # Translation
+    ["dl-en-fr", "DeepL (English > French)", "https://www.deepl.com/translator#en/fr/", 7],
+    ["dl-fr-en", "DeepL (French > English)", "https://www.deepl.com/translator#fr/en/", 7],
+    ["dl-en-es", "DeepL (English > Spanish)", "https://www.deepl.com/translator#en/es/", 7],
+    ["dl-en-es", "DeepL (Spanish > English)", "https://www.deepl.com/translator#es/en/", 7],
+    ["dl-es-fr", "DeepL (Spanish > French)", "https://www.deepl.com/translator#es/fr/", 7],
+    ["dl-fr-es", "DeepL (French > Spanish)", "https://www.deepl.com/translator#fr/es/", 7],
 ])
 
 # Define program and arguments
-parser = argparse.ArgumentParser(
+parser = ap.ArgumentParser(
     prog=NAME,
-    description="Look for everything, everywhere.",
+    description="Look for everything, everywhere",
     epilog="more details on https://github.com/n-deleforge/binocle")
 parser.add_argument(
     "-v", "--version",
@@ -59,7 +69,7 @@ parser.add_argument(
 parser.add_argument(
     "-l", "--list",
     action="version", 
-    help="show search engines list and exit")
+    help="show engines list and exit")
 parser.add_argument(
     "keyword",
     type=str,
@@ -70,46 +80,48 @@ parser.add_argument(
     help="search query (ex : \"my super research\")")
 
 # Binocle function
-def startBinocle():
-    # Variables
-    error = 0
-    nbEngines = int(ENGINES.size / 4) # because there are 4 colums in the engine array
-    results = parser.parse_args()
-    keyword = results.keyword
-    query = results.query
-    queryFormatted = results.query.replace(' ', '%20')
+def startBinocle() :
+    error = 0 #  count error to check if every engine has been check
+    nbEngines = int(ENGINES.size / 4) # engine count (because there are 4 colums in the engine array)
+    keyword = parser.parse_args().keyword
+    query = parser.parse_args().query
+    queryFormatted = parser.parse_args().query.replace(' ', '%20') # query sent to the engine
 
     # Check every engine
-    for engine in ENGINES:
-        # Engine found, opening webbrowser
-        if engine[0] == keyword:
+    for engine in ENGINES :
+        # Engine found : open webbrowser
+        if engine[0] == keyword :
             print(f"{NAME} {VERSION} \nEngine : {engine[1]} \nQuery : {query} \nFormatted query : {engine[2]}{queryFormatted}")
-            webbrowser.open(engine[2] + queryFormatted, new=2)
+            wb.open(engine[2] + queryFormatted, new=2)
 
-        # Enfine not found
-        else:
+        # Enfine not found : increment error
+        else :
             error = error + 1
-            if error == nbEngines:
-                print(f"{NAME} {VERSION} \nError : '{keyword}' is not a correct keyword.")
+            if error == nbEngines :
+                print(f"{NAME}: error: '{keyword}' is not a correct keyword")
 
-# Display every engines
-def displayEngines():
+# Show every engines categorized
+def showEngines() :
     # List categories
-    for categorie in CATEGORIES:
+    for categorie in CATEGORIES :
         print(f"\n=== {categorie[1]} ===")
         # List engines only from the categorie
-        for engine in ENGINES:
-            if (categorie[0] == engine[3]):
+        for engine in ENGINES :
+            if (categorie[0] == engine[3]) :
                 print(f"- {engine[1]} : {engine[0]}")
 
 # Workflow of Binocle
-# 1st case : display search engines
-if len(sys.argv) == 2 and (sys.argv[1] == "-l" or sys.argv[1] == "--list"):
-    displayEngines()
+nbArgs = len(sys.argv) - 1 # number of arguments
+if nbArgs > 0 :
+    cmd = sys.argv[1] # the first argument (if it exists)
+
+# 1st case : show engines
+if nbArgs == 1 and (cmd == "-l" or cmd == "--list"):
+    showEngines()
     sys.exit(1)
 
 # 2nd case : display help
-elif len(sys.argv) == 1:
+elif nbArgs == 0:
     parser.print_help(sys.stderr)
     sys.exit(1)
 
