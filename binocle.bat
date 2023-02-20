@@ -1,2 +1,2 @@
 @ECHO OFF
-python "%~dp0binocle.py" %*
+py "%~dp0binocle.py" %*
