@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "name": "Search"
+    },
+    {
+        "id": 2,
+        "name": "Utility" },
+    {
+        "id": 3,
+        "name": "Entertainment"
+    },
+    {
+        "id": 4,
+        "name": "Development"
+    },
+    {
+        "id": 5,
+        "name": "Social"
+    }
+]

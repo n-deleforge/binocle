@@ -11,18 +11,18 @@
 </div>
 
 # Quick start
-## Installation and usage
+## Installation
 
-`python` and `pip` must be installed.
+**Python must be installed on your computer**.
 
+Instructions :
 ```
 git clone https://github.com/n-deleforge/binocle.git
 cd binocle
-py -m pip install -r requirements.txt
 binocle [keyword] [query]
 ```
 
-### Usage
+## Usage
 
 Binocle *always* need two arguments to work.
 - `keyword` : keyword of the engine used - the list is available below.
@@ -33,20 +33,20 @@ There are also some optionnals arguments :
 - `-h` / `--help` : show Binocle help
 - `-l` / `--list` : show every engines available
 
-### Examples
+## Examples
 
 - Search *My Super Research* on **Duckduckgo** : `binocle d "My Super Research"`.
-- Search *SomeYoutuber* on **Youtube** : `binocle yt SomeYoutuber"`.
+- Search *SomeYoutuber* on **Youtube** : `binocle yt SomeYoutuber`.
 - Show engines available : `binocle -l`.
 
-If your query is only one word, you do not need to add quote marks as you can notice with the second example.
+If your query is only composed of one word, you don't need to add quote marks as you can notice with the second example.
 
 ## Launch from terminal (for Windows)
 
 - Edit the PATH global variable and add the directory of binocle.
-- Then you can type : `binocle [keyword] [query]` in your terminal.
+- Then you can type : `binocle [keyword] [query]` directly in your terminal.
 
-# All search engines
+# Engine list
 ## Search engines
 
 | Keyword | Search on
@@ -57,18 +57,6 @@ If your query is only one word, you do not need to add quote marks as you can no
 | g             | [Google](https://google.com)
 | q             | [Qwant](https://qwant.com)
 | s             | [Startpage](https://startpage.com)
-
-## Shopping
-
-| Keyword | Search on
-| :----------: | -------------------
-| am          | [Amazon.com](https://www.amazon.com)
-| am-uk     | [Amazon.uk](https://www.amazon.co.uk)
-| am-fr       | [Amazon.fr](https://www.amazon.fr)
-| am-de     | [Amazon.de](https://www.amazon.de)
-| am-es     | [Amazon.es](https://www.amazon.es)
-| am-it       | [Amazon.it](https://www.amazon.it)
-| am-jp      | [Amazon.jp](https://www.amazon.jp)
 
 ## Utility
 
@@ -101,20 +89,26 @@ If your query is only one word, you do not need to add quote marks as you can no
 | li              | [LinkedIn](https://www.linkedin.com)
 | re            | [Reddit](https://www.reddit.com)
 
-## Translation
+# Editing engines list
+## How to add a category
+A **category** is composed of **2** mandatory values :
+- *id* : must be an integer and unique
+- *name* : must be a string
 
-| Keyword | Search on
-| :----------: | -------------------
-| dl-en-fr    | [DeepL](https://www.deepl.com) (English > French)
-| dl-fr-en    | [DeepL](https://www.deepl.com) (French > English)
-| dl-en-es  | [DeepL](https://www.deepl.com) (Enligsh > Spanish)
-| dl-es-en  | [DeepL](https://www.deepl.com) (Spanish > English)
-| dl-es-fr    | [DeepL](https://www.deepl.com) (Spanish > French)
-| dl-fr-es    | [DeepL](https://www.deepl.com) (French > Spanish)
+Edit the `categories.json` file in the data folder and follow this template : `{"id" : x, "name": x }`
+
+## How to add an engine
+An **engine** is composed of **4** mandatory values :
+- *category* : must be an id of an existing category
+- *name* : must be a string
+- *keyword* : must be a string
+- *url* : must be a string
+
+Edit the `engines.json` file in the data folder and follow this template : `{"category" : x, "name": x, "keyword": x, "url": x}`
 
 # Changelog
 
-- 0.5.2 : DeepL added
+- 0.6 : Categories and engines are now managed throught JSON files.
 - 0.5 : Engines are now categorized in the list function
 - 0.4 : List function added (show every search engines) + HowLongToBeat added
 - 0.3 : Multiple new search engines

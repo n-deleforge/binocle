@@ -1,0 +1,108 @@
+[
+    {
+        "category": 1,
+        "name": "Bing",
+        "keyword": "b",
+        "url": "https://www.bing.com/search?q="
+    },
+    {
+        "category": 1,
+        "name": "Duckduckgo",
+        "keyword": "d",
+        "url": "https://duckduckgo.com/?q="
+    },
+    {
+        "category": 1,
+        "name": "Ecosia",
+        "keyword": "e",
+        "url": "https://www.ecosia.org/search?method=index&q="
+    },
+    {
+        "category": 1,
+        "name": "Google",
+        "keyword": "g",
+        "url": "https://google.fr/search?q="
+    },
+    {
+        "category": 1,
+        "name": "Qwant",
+        "keyword": "q",
+        "url": "https://www.qwant.com/?q="
+    },
+    {
+        "category": 1,
+        "name": "Startpage",
+        "keyword": "s",
+        "url": "https://www.startpage.com/do/search?url="
+    },
+
+    {
+        "category": 2,
+        "name": "Alternative To",
+        "keyword": "alt",
+        "url": "https://alternativeto.net/browse/search/?q="
+    },
+    {
+        "category": 2,
+        "name": "How Long To Beat",
+        "keyword": "hltb",
+        "url": "https://howlongtobeat.com/?q="
+    },
+    {
+        "category": 2,
+        "name": "My Anime List",
+        "keyword": "mal",
+        "url": "https://myanimelist.net/search/all?q="
+    },
+    {
+        "category": 2,
+        "name": "Wikipédia",
+        "keyword": "wiki",
+        "url": "https://wikipedia.org/wiki/"
+    },
+
+    {
+        "category": 3,
+        "name": "Twitch",
+        "keyword": "tw",
+        "url": "https://www.twitch.tv/search?term="
+    },
+    {
+        "category": 3,
+        "name": "YouTube",
+        "keyword": "yt",
+        "url": "https://www.youtube.com/results?search_url="
+    },
+
+    {
+        "category": 4,
+        "name": "Chocolatey",
+        "keyword": "ch",
+        "url": "https://community.chocolatey.org/packages?q="
+    },
+    {
+        "category": 4,
+        "name": "Github",
+        "keyword": "gi",
+        "url": "https://github.com/search?q="
+    },
+    {
+        "category": 4,
+        "name": "StackOverflow",
+        "keyword": "so",
+        "url": "https://stackoverflow.com/search?q="
+    },
+
+    {
+        "category": 5,
+        "name": "LinkedIn",
+        "keyword": "li",
+        "url": "https://www.linkedin.com/search/results/all/?keywords="
+    },
+    {
+        "category": 5,
+        "name": "Reddit",
+        "keyword": "re",
+        "url": "https://www.reddit.com/search/?q="
+    }
+]
