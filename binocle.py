@@ -4,7 +4,10 @@ import os
 import sys
 import webbrowser as wb
 
+#
 # Constants
+#
+
 NAME = "Binocle"
 VERSION = "0.6"
 PATH = os.path.dirname(os.path.realpath(__file__))
@@ -22,7 +25,6 @@ parser.add_argument(
     version=NAME + " " + VERSION)
 parser.add_argument(
     "-l", "--list",
-    action="version", 
     help="show engines list and exit")
 parser.add_argument(
     "keyword",
@@ -33,7 +35,10 @@ parser.add_argument(
     type=str,
     help="search query (ex : \"my super research\")")
 
+#
 # Binocle function
+#
+
 def startBinocle() :
     nbError = 0
     nbEngines = len(ENGINES)
@@ -64,7 +69,10 @@ def showEngines() :
             if (categorie["id"] == engine["category"]) :
                 print(f"- {engine['keyword']} : {engine['name']}")
 
+#
 # Workflow of Binocle
+#
+
 nbArgs = len(sys.argv) - 1 # number of arguments
 if nbArgs > 0 :
     cmd = sys.argv[1] # the first argument (if it exists)
