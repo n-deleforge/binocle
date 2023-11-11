@@ -9,12 +9,15 @@ import webbrowser as wb
 #
 
 NAME = "Binocle"
-VERSION = "0.6"
+VERSION = "0.6.1"
 PATH = os.path.dirname(os.path.realpath(__file__))
 CATEGORIES = json.load(open(PATH + '\data\categories.json', 'r'))
 ENGINES = json.load(open(PATH + '\data\engines.json', 'r'))
 
-# Define program and arguments
+#
+# Arguments
+#
+
 parser = ap.ArgumentParser(
     prog=NAME,
     description="Look for everything, everywhere",
@@ -24,12 +27,13 @@ parser.add_argument(
     action="version", 
     version=NAME + " " + VERSION)
 parser.add_argument(
-    "-l", "--list",
+    "-l", "--list", 
+    action="version", 
     help="show engines list and exit")
 parser.add_argument(
-    "keyword",
+    "engine",
     type=str,
-    help="search engine keyword (ex : d for duckduckgo)")
+    help="search engine (ex : d for duckduckgo)")
 parser.add_argument(
     "query",
     type=str,
@@ -42,49 +46,44 @@ parser.add_argument(
 def startBinocle() :
     nbError = 0
     nbEngines = len(ENGINES)
-    keyword = parser.parse_args().keyword
+    engine = parser.parse_args().keyword
     query = parser.parse_args().query
 
     # Check every engine
-    for engine in ENGINES :
+    for e in ENGINES :
         # Engine found : open webbrowser
-        if engine["keyword"] == keyword :
-            queryFormatted = engine['url'] + parser.parse_args().query.replace(' ', '%20')
-            print(f"{NAME} {VERSION} \nEngine : {engine['name']} \nQuery : {query} \nFormatted query : {queryFormatted}")
+        if e["keyword"] == engine :
+            queryFormatted = e['url'] + parser.parse_args().query.replace(' ', '%20')
+            print(f"{NAME} {VERSION} \nEngine : {e['name']} \nQuery : {query} \nFormatted query : {queryFormatted}")
             wb.open(queryFormatted, new=2)
 
         # Engine not found : increment error
         else :
             nbError = nbError + 1
             if nbError == nbEngines :
-                print(f"{NAME}: error: '{keyword}' is not a correct keyword")
+                print(f"{NAME}: error: '{engine}' is not a correct keyword")
 
-# Show every engines categorized
 def showEngines() :
-    # List categories
-    for categorie in CATEGORIES :
-        print (f"\n=== {categorie['id']}. {categorie['name']} ===")
-        # List engines only from the categorie
-        for engine in ENGINES :
-            if (categorie["id"] == engine["category"]) :
-                print(f"- {engine['keyword']} : {engine['name']}")
+    for c in CATEGORIES :
+        print (f"\n=== {c['id']}. {c['name']} ===")
+        for e in ENGINES :
+            if (c["id"] == e["category"]) :
+                print(f"- {e['keyword']} : {e['name']}")
 
 #
 # Workflow of Binocle
 #
 
-nbArgs = len(sys.argv) - 1 # number of arguments
-if nbArgs > 0 :
-    cmd = sys.argv[1] # the first argument (if it exists)
+nbArgs = len(sys.argv) - 1
 
-# 1st case : show engines
-if nbArgs == 1 and (cmd == "-l" or cmd == "--list"):
-    showEngines()
+# 1st case : display help
+if nbArgs == 0:
+    parser.print_help(sys.stderr)
     sys.exit(1)
 
-# 2nd case : display help
-elif nbArgs == 0:
-    parser.print_help(sys.stderr)
+# 2nd case : show engines
+elif nbArgs == 1 and (sys.argv[1] == "-l" or sys.argv[1] == "--list"):
+    showEngines()
     sys.exit(1)
 
 # 3rd case : call Binocle

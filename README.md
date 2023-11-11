@@ -6,7 +6,6 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/n-deleforge/binocle?style=for-the-badge)
 [![GitHub forks](https://img.shields.io/github/forks/n-deleforge/binocle?style=for-the-badge)](https://github.com/n-deleforge/binocle/network)
 [![GitHub stars](https://img.shields.io/github/stars/n-deleforge/binocle?style=for-the-badge)](https://github.com/n-deleforge/binocle/stargazers)
-[![Paypal](https://img.shields.io/badge/DONATE-PAYPAL.ME-lightgrey?style=for-the-badge)](https://www.paypal.com/paypalme/nicolasdeleforge)
 
 </div>
 
@@ -18,15 +17,13 @@
 Instructions :
 ```
 git clone https://github.com/n-deleforge/binocle.git
-cd binocle
-binocle [keyword] [query]
 ```
 
 ## Usage
 
 Binocle *always* need two arguments to work.
-- `keyword` : keyword of the engine used - the list is available below.
-- `query` : query sent to the engine
+- `engine` : engine to use - the list is available below.
+- `query` : query to send
 
 There are also some optionnals arguments :
 - `-v` / `--version` : show Binocle version
@@ -44,7 +41,7 @@ If your query is only composed of one word, you don't need to add quote marks as
 ## Launch from terminal (for Windows)
 
 - Edit the PATH global variable and add the directory of binocle.
-- Then you can type : `binocle [keyword] [query]` directly in your terminal.
+- Then you can type : `binocle [engine] [query]` directly in your terminal.
 
 # Engine list
 ## Search engines
