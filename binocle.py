@@ -46,7 +46,7 @@ parser.add_argument(
 def startBinocle() :
     nbError = 0
     nbEngines = len(ENGINES)
-    engine = parser.parse_args().keyword
+    engine = parser.parse_args().engine
     query = parser.parse_args().query
 
     # Check every engine
