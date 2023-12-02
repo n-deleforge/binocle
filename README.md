@@ -44,47 +44,26 @@ If your query is only composed of one word, you don't need to add quote marks as
 - Then you can type : `binocle [engine] [query]` directly in your terminal.
 
 # Engine list
-## Search engines
 
-| Keyword | Search on
-| :----------: | -------------------
-| b             | [Bing](https://www.bing.com)
-| d             | [Duckduckgo](https://duckduckgo.com)
-| e             | [Ecosia](https://www.ecosia.org)
-| g             | [Google](https://google.com)
-| q             | [Qwant](https://qwant.com)
-| s             | [Startpage](https://startpage.com)
-
-## Utility
-
-| Keyword | Search on
-| :----------: | -------------------
-| alt           | [Alternative To](https://alternativeto.net)
-| hltb         | [HowLongTo Beat](https://howlongtobeat.com/)
-| mal         | [MyAnimeList](https://myanimelist.net)
-| wi           | [Wikipedia](https://wikipedia.org/wiki/)
-
-## Entertainment
-
-| Keyword | Search on
-| :----------: | -------------------
-| tw           | [Twitch](https://twitch.com)
-| yt            | [Youtube](https://youtube.com)
-
-## Development
-
-| Keyword | Search on
-| :----------: | -------------------
-| ch           | [Chocolatey](https://chocolatey.org)
-| gi            | [Github](https://github.com)
-| so           | [StackOverflow](https://stackoverflow.com) 
-
-## Social
-
-| Keyword | Search on
-| :----------: | -------------------
-| li              | [LinkedIn](https://www.linkedin.com)
-| re            | [Reddit](https://www.reddit.com)
+| Categorie     | Keyword | Search on
+| :------------ | :------ | :-------------------
+| Search Engine | b       | [Bing](https://www.bing.com)
+| -             | d       | [Duckduckgo](https://duckduckgo.com)
+| -             | e       | [Ecosia](https://www.ecosia.org)
+| -             | g       | [Google](https://google.com)
+| -             | q       | [Qwant](https://qwant.com)
+| -             | s       | [Startpage](https://startpage.com)
+| Utility       | alt     | [Alternative To](https://alternativeto.net)
+| -             | hltb    | [HowLongTo Beat](https://howlongtobeat.com/)
+| -             | mal     | [MyAnimeList](https://myanimelist.net)
+| -             | wi      | [Wikipedia](https://wikipedia.org/wiki/)
+| Entertainment | tw      | [Twitch](https://twitch.com)
+| -             | yt      | [Youtube](https://youtube.com)
+| Development   | ch      | [Chocolatey](https://chocolatey.org)
+| -             | gi      | [Github](https://github.com)
+| -             | so      | [StackOverflow](https://stackoverflow.com) 
+| Social        | li      | [LinkedIn](https://www.linkedin.com)
+| -             | re      | [Reddit](https://www.reddit.com)
 
 # Editing engines list
 ## How to add a category
