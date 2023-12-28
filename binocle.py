@@ -1,8 +1,8 @@
-import argparse as ap
+import argparse
 import json
 import os
 import sys
-import webbrowser as wb
+import webbrowser
 
 #
 # Constants
@@ -18,7 +18,7 @@ ENGINES = json.load(open(PATH + '\data\engines.json', 'r'))
 # Arguments
 #
 
-parser = ap.ArgumentParser(
+parser = argparse.ArgumentParser(
     prog=NAME,
     description="Look for everything, everywhere",
     epilog="more details on https://github.com/n-deleforge/binocle")
@@ -55,17 +55,20 @@ def startBinocle() :
         if e["keyword"] == engine :
             queryFormatted = e['url'] + parser.parse_args().query.replace(' ', '%20')
             print(f"{NAME} {VERSION} \nEngine : {e['name']} \nQuery : {query} \nFormatted query : {queryFormatted}")
-            wb.open(queryFormatted, new=2)
+            webbrowser.open(queryFormatted, new=2)
 
         # Engine not found : increment error
         else :
             nbError = nbError + 1
             if nbError == nbEngines :
-                print(f"{NAME}: error: '{engine}' is not a correct keyword")
+                print(f"{NAME}: '{engine}' is not a configured engine. Please use the argument '-l' to look at all the available engines.")
 
 def showEngines() :
-    for c in CATEGORIES :
-        print (f"\n=== {c['id']}. {c['name']} ===")
+    for i, c in enumerate(CATEGORIES, start=1):
+        if i == 1:
+            print (f"=== {c['id']}. {c['name']} ===")
+        else:
+            print (f"\n=== {c['id']}. {c['name']} ===")
         for e in ENGINES :
             if (c["id"] == e["category"]) :
                 print(f"- {e['keyword']} : {e['name']}")
