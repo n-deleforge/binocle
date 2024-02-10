@@ -11,8 +11,8 @@ import webbrowser
 NAME = "Binocle"
 VERSION = "0.6.1"
 PATH = os.path.dirname(os.path.realpath(__file__))
-CATEGORIES = json.load(open(PATH + '\data\categories.json', 'r'))
-ENGINES = json.load(open(PATH + '\data\engines.json', 'r'))
+CATEGORIES = json.load(open(PATH + '/data/categories.json', 'r'))
+ENGINES = json.load(open(PATH + '/data/engines.json', 'r'))
 
 #
 # Arguments
